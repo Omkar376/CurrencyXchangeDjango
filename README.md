@@ -77,7 +77,7 @@ CURRENCIES_NAME_MAPPING = {  'US Dollar': 'USD',
 ```
 ### Analytics
 
-1. Weekly Average Amount transferred is the mean of all transaction of particular currency of the logged in user.
+1. Weekly Average Amount transferred is the mean of all transaction of each currency of the logged in user.
 2. Profit/Loss is for every sender and receiver currency type pair, for a particular pair it is the mean of the diff of the recevier amount at time of transaction and amount that would be current amount if the transaction occurs now for all transactions.
  ```
  {
@@ -188,6 +188,8 @@ CURRENCY_EXCHANGE_API_URL = "https://api.exchangeratesapi.io/"
 8. Weekly Report:
 	Method : GET
 	URL: http://127.0.0.1:8000/analytics/weekly?year=2020&week_number=20
+	Query Params : week_number is nth week of year for example year=2020&week_number=20 
+				start date: 5/11/2020 12:00 AM and end date 5/17/2020 9:36 PM
 	Response:  {
 		    "analysis_list": [
 					{
