@@ -2,12 +2,26 @@
 A Django Project for Currency Exchange, Wallet and Analytics..
 
 ## Getting Started
-
-
+Follow below instructions to run the django app. Also see deployment for notes
+### Clone Repository
 ```
 git clone https://github.com/Omkar376/CurrencyXchangeDjango.git
 ```
+### Installing
 
+Use AnacondaPrompt any other commandline control with python installed. Create a virtual env for ou project.
+
+```
+pip install virtualenv
+virtualenv env
+env\Scripts\activate
+```
+
+Open the project directory and install the required library from requirments.txt
+
+```
+pip install requirements.txt
+```
 API List
 Register User 
     method : POST
