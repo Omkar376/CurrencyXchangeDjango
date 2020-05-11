@@ -90,11 +90,11 @@ CURRENCIES_NAME_MAPPING = {  'US Dollar': 'USD',
 
 ## Reports and Emails
 
-Monthly report of all transaction and after every successfull transaction an email received by Sender and Receiver of the transaction.
+Monthly report of all transactions and after every successfull transaction an email received by Sender and Receiver of the transaction.
 
 Format of Report:
 
-![alt text]https://github.com/Omkar376/CurrencyXchangeDjango/blob/master/images/SampleReport.JPG
+![alt text](https://github.com/Omkar376/CurrencyXchangeDjango/blob/master/images/SampleReport.JPG)
 
 ## API List
 ```
