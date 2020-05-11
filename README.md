@@ -46,19 +46,21 @@ A Monthly Transaction Report is generated and an Email is sent for the same to a
 ### Currencies Configured
 
 This project is configured for 10 Currencies around the world. Currency can be added as below in setting.py file.
-Add the currency code in {CURRENCIES}
-Add the corresponding currency name with code in {CURRENCIES_NAME_MAPPING}
+
+
 For converison of currency {CURRENCY_EXCHANGE_API_URL} end point is used.
 
 ```
 /settings.py
 .
-..
-...
+
+# Currency Conversion API
 CURRENCY_EXCHANGE_API_URL = "https://api.exchangeratesapi.io/"
 
+#Add the currency code in {CURRENCIES}
 CURRENCIES = ('USD', 'INR', "EUR" ,"JPY", "GBP", "AUD", "CAD", "CHF", "SEK", "NZD")
 
+#Add the corresponding currency name with code in {CURRENCIES_NAME_MAPPING} (NAME : CODE)
 CURRENCIES_NAME_MAPPING = {  'US Dollar': 'USD',
                              'Indian Rupee': 'INR',
                              'EURO': 'EUR',
@@ -81,6 +83,10 @@ CURRENCIES_NAME_MAPPING = {  'US Dollar': 'USD',
 
 ## API List
 ```
+# Currency Conversion API
+
+CURRENCY_EXCHANGE_API_URL = "https://api.exchangeratesapi.io/"
+
 1. Register User 
 	    Method : POST
 	    URL : http://localhost:8000/rest-auth/registration/
