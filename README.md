@@ -35,9 +35,42 @@ python manage.py runserver
 
 Find the Collection of Postman requests "CurrencyXchangeTesting.postman_collection.json" in Code repository 
 
-## Background Scheduler
+## Assumption
 
-A Monthly Transaction Report is generated and an Email is sent for the same to all users 
+Below are some assumptions and settings implemented in this project:
+
+### Background Scheduler
+
+A Monthly Transaction Report is generated and an Email is sent for the same to all users on last Friday of the month
+
+### Currencies Configured
+
+This project is configured for 10 Currencies around the world. Currency can be added as below in setting.py file.
+Add the currency code in {CURRENCIES}
+Add the corresponding currency name with code in {CURRENCIES_NAME_MAPPING}
+For converison of currency {CURRENCY_EXCHANGE_API_URL} end point is used.
+
+```
+/settings.py
+.
+..
+...
+CURRENCY_EXCHANGE_API_URL = "https://api.exchangeratesapi.io/"
+CURRENCIES = ('USD', 'INR', "EUR" ,"JPY", "GBP", "AUD", "CAD", "CHF", "SEK", "NZD")
+CURRENCIES_NAME_MAPPING = {  'US Dollar': 'USD',
+                             'Indian Rupee': 'INR',
+                             'EURO': 'EUR',
+                             'Yen': 'JPY',
+                             'Pound Sterling': 'GBP',
+                             'Australian Dollar': 'AUD',
+                             'Canadian Dollar': 'CAD',
+                             'Swiss Franc': 'CHF',
+                             'New Zealand Dollar': 'NZD',
+                             'Chinese renminbi': 'CNH',
+                             'Swedish Krona': 'SEK' }
+
+....
+```
 
 ## API List
 ```
