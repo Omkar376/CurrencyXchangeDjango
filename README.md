@@ -20,20 +20,30 @@ env\Scripts\activate
 Open the project directory and install the required library from requirments.txt
 
 ```
+cd {ProjectDirectory}
 pip install requirements.txt
 ```
+
+## Deployment
+
+```
+python manage.py runserver
+```
+
+
 API List
 Register User 
     method : POST
+    ```
     url : http://localhost:8000/rest-auth/registration/
-      {
-        "email" : "user0376@gmail.com",
-        "password1" : "user0376",
-        "password2" : "user0376",
-        "first_name" : "User0376",
-        "last_name" : "UserLastName0376"
-
-      }
+    request body :    {
+			"email" : "user0376@gmail.com",
+			"password1" : "user0376",
+			"password2" : "user0376",
+			"first_name" : "User0376",
+			"last_name" : "UserLastName0376"
+		      }
+```
 Login User
     method : POST
     url : http://localhost:8000/rest-auth/login/
