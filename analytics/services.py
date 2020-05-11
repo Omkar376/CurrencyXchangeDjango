@@ -8,23 +8,29 @@ from django.core.mail import EmailMessage
 
 class AnalyticsServices:
     def week_date_range(year, week_num):
-    
+        #Generate Date Range from year and week number
         start_date = datetime.strptime(f'{year}-W{int(week_num )- 1}-1', "%Y-W%W-%w")
         end_date = start_date + timedelta(days=6.9)
         return start_date, end_date
 
     def get_weekly_analytics(user, year, week_number):
+        #Query Transactions
         transactions = Transaction.objects.all()
+        
+        #Filter by logged in user email
         transactions = transactions.filter(sender__email=user.email)
         if not transactions:
             response = {"status" : False, "message" : "No transactions found"}
             return response
+        
+        #Filter by date range
         start_date, end_date = AnalyticsServices.week_date_range(year, week_number)       
         transactions = transactions.filter(timestamp__gte=start_date).filter( timestamp__lte=end_date)
         if not len(transactions)>0:
             return {}
+        
+        #Dataframe operations
         transactions_df = read_frame(transactions)
-
         transactions_df["date"] = transactions_df.apply(lambda t: t["timestamp"].strftime('%Y-%m-%d'), axis=1)
         transactions_df["sender_amount"] = transactions_df.apply(lambda t: int(t["sender_amount"]), axis=1)
         transactions_df = transactions_df[["sender_amount_currency","sender_amount" , "date"]]
@@ -38,16 +44,22 @@ class AnalyticsServices:
     
     def get_transaction_analysis(user, start_date):
         analysis = {}
+        #Query Transactions
         transactions = Transaction.objects.all()
+        
+        #Filter by logged in user email
         transactions = transactions.filter(sender__email=user.email)
         if not transactions:
             response = {"status" : False, "message" : "No transactions found"}
             return response
+        
+        #Filter by start date
         transactions = transactions.filter(timestamp__gte=start_date)
         if not len(transactions)>0:
             return {}
+        
+        #Dataframe operations
         transactions_df = read_frame(transactions)
-
         transactions_df["date"] = transactions_df.apply(lambda t: t["timestamp"].strftime('%Y-%m-%d'), axis=1)
         transactions_df["sender_amount"] = transactions_df.apply(lambda t: int(t["sender_amount"]), axis=1)
         transactions_df["receiver_amount"] = transactions_df.apply(lambda t: int(t["receiver_amount"]), axis=1)
@@ -68,6 +80,7 @@ class AnalyticsServices:
     
 class EmailService:
     def sendTransactionEmail(to_email, message ,file):
+        #Send Email service
         msg = EmailMessage('Transaction Report', message, "omkar.gulave123@gmail.com", [to_email])
         msg.content_subtype = "html"  
         msg.attach_file(file)

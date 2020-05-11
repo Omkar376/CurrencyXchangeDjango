@@ -4,14 +4,15 @@ from rest_framework import serializers
 from .models import Currency, Wallet, Transaction
 from users.models import User
 from .services import CurrencyServices
-
+ 
+#Currency Serializer
 class CurrencySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Currency
         fields = ['id', 'name', 'code', 'country', "logo"]
         
         
-
+#Wallet Serializer
 class WalletSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.SlugRelatedField(many=False, read_only=True,
                                           slug_field='email')
@@ -19,9 +20,9 @@ class WalletSerializer(serializers.HyperlinkedModelSerializer):
         model = Wallet
         fields = ['id', 'user', 'amount', "amount_currency"]
         
-
+#Single Transaction Details Serializers
 class TransactionDetailsSerializers():
-    
+    #Custom Serializer for transaction
     def transaction_serializer(transaction_request):
         transaction_details = {}
         try:
@@ -49,16 +50,14 @@ class TransactionDetailsSerializers():
                                    "transaction_request" : str(transaction_request.data.get("amount"))}
             print(transaction_details)
         return transaction_details
-        
+  
+#Transaction Serializer      
 class TransactionSerializer(serializers.HyperlinkedModelSerializer):
     sender = serializers.SlugRelatedField(many=False, read_only=True,
                                           slug_field='email')
     receiver = serializers.SlugRelatedField(many=False, read_only=True,
                                           slug_field='email')
-    """
-    sender = UserSerializer()
-    receiver = UserSerializer()
-    """
+
     class Meta:
         model = Transaction
         fields = ['id', 'sender', 'sender_amount', "sender_amount_currency", "receiver", 

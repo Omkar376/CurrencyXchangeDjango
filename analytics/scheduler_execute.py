@@ -8,6 +8,7 @@ scheduler.configure(timezone=utc)
 from . import monthly_report
 
 #scheduler.add_job(monthly_report.MonthlyReport, 'interval', seconds=10)
+#Run scheduler on last friday of every month
 scheduler.add_job(monthly_report.MonthlyReport, 'cron', day='last fri')
 scheduler.start()
 

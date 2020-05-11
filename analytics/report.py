@@ -10,7 +10,8 @@ from datetime import datetime
 from reportlab.lib.styles import ParagraphStyle, TA_CENTER
 
 class Report:
-    def generate_report(user, message, dfdata): 
+    def generate_report(user, message, dfdata):
+        #Transaction Table generation
         GRID_STYLE = TableStyle(
                     [('GRID', (0, 0), (-1, -1), 0.15, colors.dodgerblue),
                     ('ALIGN', (1, 0), (-1, -1), 'RIGHT')])
@@ -20,6 +21,7 @@ class Report:
         filepath = r"C:\Users\lncoretech\New folder\CurrencyXchange\reports" + f"\\{filename}.pdf"
         doc = SimpleDocTemplate(filepath, pagesize=letter)
 
+        #Adding Headers and Text
         story = [] 
         parastyle = ParagraphStyle('parrafos',
                 alignment = TA_CENTER,
@@ -42,5 +44,7 @@ class Report:
         story.append(Spacer(1, 12))
         element = story + [] 
         element.append(transaction_table)
+        
+        #Saving pdf file
         doc.build(element)
         return filepath

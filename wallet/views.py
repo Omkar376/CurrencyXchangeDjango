@@ -10,9 +10,11 @@ from .services import CurrencyServices, WalletServices, EmailTransactionDetails
 
 # Create your views here.
 class TransactionDetails(APIView):
+    #Token Authentication
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
+    #Post Request
     def post(self, request, format=None): 
         
         transaction_details = TransactionDetailsSerializers.transaction_serializer(request)
@@ -43,9 +45,11 @@ class TransactionDetails(APIView):
     
         
 class WalletDetails(APIView):
+    #Token Authentication
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
+    #Get request
     def get(self, request, format=None):
         #Get Wallet
         currency = request.GET.get('currency')
@@ -54,6 +58,7 @@ class WalletDetails(APIView):
         
         return Response(wallet_response.data, status=status.HTTP_200_OK)
     
+    #Put req
     def put(self, request, format=None):
         #Update Wallet
         amount = request.data.get("amount")
@@ -65,6 +70,7 @@ class WalletDetails(APIView):
         
         return Response(response_status, status=status.HTTP_200_OK)
     
+    #Post req to create wallet
     def post(self, request, format=None):
         #Create Wallet
         currency =  request.data.get("amount_currency")
@@ -82,9 +88,11 @@ class WalletDetails(APIView):
         return Response(response_status, status=status.HTTP_200_OK)
     
 class CurrencyConversion(APIView):
+    #Token Authentication
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     
+    #Post Request
     def post(self, request, format=None):
         amount =  request.data.get("amount")
         currency =  request.data.get("from_currency")
@@ -96,7 +104,7 @@ class CurrencyConversion(APIView):
         response["converted_currency"] = convert_to_currency
         return Response(response, status=status.HTTP_200_OK)
         
-    
+#Model Set View for Models Currency Wallet, Transaction     
 class CurrencyList(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
