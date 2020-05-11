@@ -56,7 +56,9 @@ For converison of currency {CURRENCY_EXCHANGE_API_URL} end point is used.
 ..
 ...
 CURRENCY_EXCHANGE_API_URL = "https://api.exchangeratesapi.io/"
+
 CURRENCIES = ('USD', 'INR', "EUR" ,"JPY", "GBP", "AUD", "CAD", "CHF", "SEK", "NZD")
+
 CURRENCIES_NAME_MAPPING = {  'US Dollar': 'USD',
                              'Indian Rupee': 'INR',
                              'EURO': 'EUR',
@@ -71,6 +73,11 @@ CURRENCIES_NAME_MAPPING = {  'US Dollar': 'USD',
 
 ....
 ```
+### Analytics
+
+1. Weekly Average Amount transferred is the mean of all transaction of particular currency of the logged in user.
+2. Profit/Loss is for every currency type of sender an is the summation of the diff of the recevier amount at time of transaction and amount that would be current amount if the transaction occurs now.
+
 
 ## API List
 ```
