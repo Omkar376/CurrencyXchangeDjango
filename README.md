@@ -1,6 +1,12 @@
 # CurrencyXchangeDjango
-A Django Project for Currency Exchange, Wallet and much more... 
+A Django Project for Currency Exchange, Wallet and Analytics..
 
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+```
+git clone https://github.com/Omkar376/CurrencyXchangeDjango.git
+```
 
 API List
 Register User 
