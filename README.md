@@ -31,10 +31,10 @@ python manage.py runserver
 ```
 
 
-API List
+## API List
+```
 Register User 
     method : POST
-    ```
     url : http://localhost:8000/rest-auth/registration/
     request body :    {
 			"email" : "user0376@gmail.com",
@@ -43,7 +43,7 @@ Register User
 			"first_name" : "User0376",
 			"last_name" : "UserLastName0376"
 		      }
-```
+
 Login User
     method : POST
     url : http://localhost:8000/rest-auth/login/
