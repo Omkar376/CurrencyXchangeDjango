@@ -28,7 +28,6 @@ class AnalyticsServices:
         transactions_df["date"] = transactions_df.apply(lambda t: t["timestamp"].strftime('%Y-%m-%d'), axis=1)
         transactions_df["sender_amount"] = transactions_df.apply(lambda t: int(t["sender_amount"]), axis=1)
         transactions_df = transactions_df[["sender_amount_currency","sender_amount" , "date"]]
-        print(transactions_df)
         transactions_df = transactions_df.groupby(["sender_amount_currency", "date"]).mean().reset_index()
         transactions_df = transactions_df.rename(columns={'sender_amount_currency':'currency', 
                                         "sender_amount" : "average_amount"}) 
@@ -55,21 +54,16 @@ class AnalyticsServices:
         from wallet.services import CurrencyServices
 
         def convert(t):
-            print(t)
             amount = CurrencyServices.convert_currency(t["sender_amount"], CURRENCIES_NAME_MAPPING.get(t["sender_amount_currency"]), 
                                                       CURRENCIES_NAME_MAPPING.get( t["receiver_amount_currency"]), "latest")
-            print(amount)
             return amount
         
         transactions_df["current_amount"] = transactions_df.apply(lambda t:convert(t), axis =1)
         transactions_df["diff"] = transactions_df.apply(lambda t: t["receiver_amount"] - t["current_amount"], axis =1)
-        total = sum(transactions_df["diff"])
-        if total > 0:
-            analysis = {"status": "Profit", "amount":total}
-        elif total == 0:
-            analysis = {"status": "No Profit or Loss", "amount": 0}
-        else:
-            analysis = {"status": "Loss", "amount": abs(total)}
+        grouped_transactions_df = transactions_df[["sender_amount_currency", "receiver_amount_currency", "diff"]].groupby(["sender_amount_currency", "receiver_amount_currency"]).mean().reset_index()
+        grouped_transactions_df["status"] = transactions_df.apply(lambda t: "Profit" if t["diff"] > 0 else "Loss", axis =1)
+        analysis = grouped_transactions_df.to_dict("records")
+
         return analysis
     
 class EmailService:

@@ -27,6 +27,6 @@ def MonthlyReport():
         temp_transactiondf = transactions_df[transactions_df["sender"] == sender]
         temp_transactiondf = temp_transactiondf[["Date", "Credited Account", "Debited Amount", "Credited Amount" ]]
         file = Report.generate_report(sender, text, temp_transactiondf)
-        EmailService.sendTransactionEmail(sender, "Email", file)
+        EmailService.sendTransactionEmail(sender, "Monthy " + text, file)
     
         

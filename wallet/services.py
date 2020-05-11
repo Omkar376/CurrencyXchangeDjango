@@ -47,8 +47,8 @@ class EmailTransactionDetails:
         transactions_df = transactions_df[["sender", "Debited Amount", "receiver", "Credited Amount", "date"]]
         transactions_df = transactions_df.rename(columns={'receiver':'Credited Account', "date" : "Date", "sender" : "Sender Account"})
         file = Report.generate_report("", text, transactions_df)
-        EmailService.sendTransactionEmail(transaction.sender, "Email", file)
-        EmailService.sendTransactionEmail(transaction.receiver, "Email", file)
+        EmailService.sendTransactionEmail(transaction.sender, "Transaction Email Update", file)
+        EmailService.sendTransactionEmail(transaction.receiver, "Transaction Email Update", file)
         
 class WalletServices:
     

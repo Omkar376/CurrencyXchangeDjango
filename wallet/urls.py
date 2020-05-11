@@ -16,5 +16,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('createtransactions/', views.TransactionDetails.as_view()),
     path('wallets', views.WalletDetails.as_view()),
-    path('convert_currency', views.WalletDetails.as_view())
+    path('convert_currency', views.CurrencyConversion.as_view())
 ]
