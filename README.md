@@ -26,10 +26,14 @@ pip install requirements.txt
 
 ## Deployment
 
+Start django rest framework project using below command:
 ```
 python manage.py runserver
 ```
 
+## Test using Postman
+
+Find the Collection of Postman requests "CurrencyXchangeTesting.postman_collection.json" in Code repository 
 
 ## API List
 ```
