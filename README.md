@@ -35,6 +35,10 @@ python manage.py runserver
 
 Find the Collection of Postman requests "CurrencyXchangeTesting.postman_collection.json" in Code repository 
 
+## Background Scheduler
+
+A Monthly Transaction Report is generated and an Email is sent for the same to all users 
+
 ## API List
 ```
 1. Register User 
@@ -97,18 +101,18 @@ Find the Collection of Postman requests "CurrencyXchangeTesting.postman_collecti
 		    }
 		]
 
-	6. Convert Currency:
-		Method : POST
-		URL : http://localhost:8000/convert_currency
-		Request Body: {
-				"amount": 20000,
-				"from_currency" :"INR",
-				"to_currency" : "USD"
-			      }
-		Response : {
-		    "converted_amount": 263.691288,
-		    "converted_currency": "USD"
-		}
+6. Convert Currency:
+	Method : POST
+	URL : http://localhost:8000/convert_currency
+	Request Body: {
+			"amount": 20000,
+			"from_currency" :"INR",
+			"to_currency" : "USD"
+		      }
+	Response : {
+	    "converted_amount": 263.691288,
+	    "converted_currency": "USD"
+	}
 
 7. Create transaction:
 	Method : POST
