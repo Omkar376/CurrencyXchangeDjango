@@ -78,9 +78,15 @@ CURRENCIES_NAME_MAPPING = {  'US Dollar': 'USD',
 ### Analytics
 
 1. Weekly Average Amount transferred is the mean of all transaction of particular currency of the logged in user.
-2. Profit/Loss is for every currency type of sender an is the summation of the diff of the recevier amount at time of transaction and amount that would be current amount if the transaction occurs now.
-
-
+2. Profit/Loss is for every sender and receiver currency type pair, for a particular pair it is the mean of the diff of the recevier amount at time of transaction and amount that would be current amount if the transaction occurs now for all transactions.
+ ```
+ {
+        "sender_amount_currency": "Indian Rupee",
+        "receiver_amount_currency": "US Dollar",
+        "diff": -0.5536931999999979,
+        "status": "Loss"
+ }
+```
 ## API List
 ```
 # Currency Conversion API
@@ -186,10 +192,12 @@ CURRENCY_EXCHANGE_API_URL = "https://api.exchangeratesapi.io/"
 9. Profit/Loss Report 
 	Method : GET
 	URL: http://127.0.0.1:8000/analytics/analytics?start_date=2020-05-01
-	Response:{
-		    "status": "Profit",
-		    "amount": 100
-		}
+	Response: {
+			"sender_amount_currency": "Indian Rupee",
+			"receiver_amount_currency": "US Dollar",
+			"diff": -0.55,
+			"status": "Loss"
+		 }
 		
 10. Upload User profile image:
 	Method : POST
