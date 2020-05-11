@@ -38,77 +38,77 @@ Find the Collection of Postman requests "CurrencyXchangeTesting.postman_collecti
 ## API List
 ```
 1. Register User 
-    Method : POST
-    URL : http://localhost:8000/rest-auth/registration/
-    Request Body :    {
-			"email" : "user0376@gmail.com",
-			"password1" : "user0376",
-			"password2" : "user0376",
-			"first_name" : "User0376",
-			"last_name" : "UserLastName0376"
-		      }
+	    Method : POST
+	    URL : http://localhost:8000/rest-auth/registration/
+	    Request Body :    {
+				"email" : "user0376@gmail.com",
+				"password1" : "user0376",
+				"password2" : "user0376",
+				"first_name" : "User0376",
+				"last_name" : "UserLastName0376"
+			      }
 
 2. Login User
-    Method : POST
-    URL : http://localhost:8000/rest-auth/login/
-    Request Body : {
-		      "email" : "user0376@gmail.com",
-		      "password" : "user0376"
-		    }
+	    Method : POST
+	    URL : http://localhost:8000/rest-auth/login/
+	    Request Body : {
+			      "email" : "user0376@gmail.com",
+			      "password" : "user0376"
+			    }
     
 3. Create Wallet:
-    Method : POST
-    URL : http://localhost:8000/wallets
-    Request Body : {
-		  "amount" : 10000,
-		  "amount_currency" : "INR"
-		   }
+	    Method : POST
+	    URL : http://localhost:8000/wallets
+	    Request Body : {
+			  "amount" : 10000,
+			  "amount_currency" : "INR"
+			   }
         
 4. Update Wallet:
-    Method : PUT
-    URL : http://localhost:8000/wallets
-    Request Body :    {
-          "amount" : 10000,
-          "amount_currency" : "INR"
-        }
+	    Method : PUT
+	    URL : http://localhost:8000/wallets
+	    Request Body :    {
+		  "amount" : 10000,
+		  "amount_currency" : "INR"
+		}
 	
 5. Get Wallet Balance:
-  Method : GET
-  URL : http://localhost:8000/wallets
-  Response:
-	[
-	    {
-		"id": 7,
-		"user": "user0376@gmail.com",
-		"amount": "20000.00",
-		"amount_currency": "INR"
-	    },
-	    {
-		"id": 8,
-		"user": "user0376@gmail.com",
-		"amount": "2000.00",
-		"amount_currency": "USD"
-	    },
-	    {
-		"id": 9,
-		"user": "user0376@gmail.com",
-		"amount": "2000.00",
-		"amount_currency": "EUR"
-	    }
-	]
+	  Method : GET
+	  URL : http://localhost:8000/wallets
+	  Response:
+		[
+		    {
+			"id": 7,
+			"user": "user0376@gmail.com",
+			"amount": "20000.00",
+			"amount_currency": "INR"
+		    },
+		    {
+			"id": 8,
+			"user": "user0376@gmail.com",
+			"amount": "2000.00",
+			"amount_currency": "USD"
+		    },
+		    {
+			"id": 9,
+			"user": "user0376@gmail.com",
+			"amount": "2000.00",
+			"amount_currency": "EUR"
+		    }
+		]
 
-6. Convert Currency:
-	Method : POST
-	URL : http://localhost:8000/convert_currency
-	Request Body: {
-			"amount": 20000,
-			"from_currency" :"INR",
-			"to_currency" : "USD"
-		      }
-	Response : {
-	    "converted_amount": 263.691288,
-	    "converted_currency": "USD"
-	}
+	6. Convert Currency:
+		Method : POST
+		URL : http://localhost:8000/convert_currency
+		Request Body: {
+				"amount": 20000,
+				"from_currency" :"INR",
+				"to_currency" : "USD"
+			      }
+		Response : {
+		    "converted_amount": 263.691288,
+		    "converted_currency": "USD"
+		}
 
 7. Create transaction:
 	Method : POST
