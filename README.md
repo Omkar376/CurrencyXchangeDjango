@@ -15,7 +15,7 @@ A Django Project for Currency Exchange, Wallet and Analytics. The Project has th
 ```		
 
 ## Getting Started
-Follow below instructions to run the django app. Also see deployment for notes
+Follow below instructions to run the django app.
 ### Clone Repository
 ```
 git clone https://github.com/Omkar376/CurrencyXchangeDjango.git
