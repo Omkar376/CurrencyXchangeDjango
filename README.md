@@ -1,5 +1,18 @@
 # CurrencyXchangeDjango
-A Django Project for Currency Exchange, Wallet and Analytics..
+A Django Project for Currency Exchange, Wallet and Analytics. The Project has three django apps as below
+```
+1. users
+	Models : Users
+	Functionality : A custom user model to store data of the logged in user.
+	
+2. wallet
+	Models : Wallet, Currency, Transaction
+	Functionality : Create, Update Wallet, Transfer Money from one wallet to another.
+	
+3. analytics
+	Models : None
+	Functionality:  Weekly, Monthly Report generation and Email Services.
+		
 
 ## Getting Started
 Follow below instructions to run the django app. Also see deployment for notes
