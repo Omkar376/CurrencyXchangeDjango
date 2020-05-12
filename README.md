@@ -24,7 +24,7 @@ cd {ProjectDirectory}
 pip install requirements.txt
 ```
 
-## Deployment
+## Start Django REST framework project server
 
 Start django rest framework project using below command:
 ```
