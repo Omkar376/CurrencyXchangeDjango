@@ -1,5 +1,5 @@
 # CurrencyXchangeDjango
-A Django Project for Currency Exchange, Wallet and Analytics. The Project has three django apps as below
+A Django Project for Currency Exchange, Wallet and Analytics. The Project has three Apps as below
 ```
 1. users
 	Models : Users
@@ -67,7 +67,7 @@ For converison of currency {CURRENCY_EXCHANGE_API_URL} end point is used.
 /settings.py
 .
 
-# Currency Conversion API
+#Currency Conversion API
 CURRENCY_EXCHANGE_API_URL = "https://api.exchangeratesapi.io/"
 
 #Add the currency code in {CURRENCIES}
