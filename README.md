@@ -12,7 +12,7 @@ A Django Project for Currency Exchange, Wallet and Analytics. The Project has th
 3. analytics
 	Models : None
 	Functionality:  Weekly, Monthly Report generation and Email Services.
-		
+```		
 
 ## Getting Started
 Follow below instructions to run the django app. Also see deployment for notes
